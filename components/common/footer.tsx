@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Wand2 } from "lucide-react";
+import { Wand2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Footer() {
@@ -11,17 +11,17 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="flex flex-col space-y-4">
             <div className="text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-500 bg-clip-text text-transparent font-serif">
-              The Slytherin Secrets
+              ParchmentGuard
             </div>
             <p className="text-gray-700 text-sm font-serif">
-              Protect your parchments with cunning precision. Our sophisticated
-              enchantments detect personally identifiable information with
-              pure-blood discretion.
+              Seamlessly protect sensitive documents with intelligent, real-time
+              data privacy detection. Your information, safeguarded with
+              confidence.
             </p>
             <div className="pt-2">
               <Link href="/upload">
                 <Button className="bg-gradient-to-r from-green-700 to-emerald-500 hover:from-green-800 hover:to-emerald-600 group">
-                  Cast Detection Charm
+                  Start Scanning
                   <Wand2 className="ml-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
                 </Button>
               </Link>
@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Product Column */}
           <div>
             <h3 className="font-semibold text-black mb-4 font-serif">
-              Cunning Services
+              Platform
             </h3>
             <ul className="space-y-3 font-serif">
               <li>
@@ -39,7 +39,7 @@ export default function Footer() {
                   href="/upload"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  Upload a Parchment
+                  Upload a Document
                 </Link>
               </li>
               <li>
@@ -47,7 +47,7 @@ export default function Footer() {
                   href="/#how-it-works"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  How The Enchantment Works
+                  How It Works
                 </Link>
               </li>
               <li>
@@ -55,7 +55,7 @@ export default function Footer() {
                   href="/#pricing"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  Secret Chamber Access
+                  Plans & Pricing
                 </Link>
               </li>
               <li>
@@ -63,7 +63,7 @@ export default function Footer() {
                   href="/dashboard"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  Your Protection Reports
+                  Your Reports
                 </Link>
               </li>
             </ul>
@@ -72,7 +72,7 @@ export default function Footer() {
           {/* Plans Column */}
           <div>
             <h3 className="font-semibold text-black mb-4 font-serif">
-              Ambitious Plans
+              Subscription Plans
             </h3>
             <ul className="space-y-3 font-serif">
               <li>
@@ -80,7 +80,7 @@ export default function Footer() {
                   href="/#pricing"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  Serpent - 9 Galleons/month
+                  Basic – $9/month
                 </Link>
               </li>
               <li>
@@ -88,7 +88,7 @@ export default function Footer() {
                   href="/#pricing"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  Basilisk - 19 Galleons/month
+                  Pro – $19/month
                 </Link>
               </li>
               <li>
@@ -96,7 +96,7 @@ export default function Footer() {
                   href="/#pricing"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  Enchantment Comparison
+                  Compare Plans
                 </Link>
               </li>
             </ul>
@@ -105,7 +105,7 @@ export default function Footer() {
           {/* Company Column */}
           <div>
             <h3 className="font-semibold text-black mb-4 font-serif">
-              Pure-Blood Affairs
+              Company
             </h3>
             <ul className="space-y-3 font-serif">
               <li>
@@ -113,7 +113,7 @@ export default function Footer() {
                   href="/about"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  About Our Society
+                  About Us
                 </Link>
               </li>
               <li>
@@ -121,7 +121,7 @@ export default function Footer() {
                   href="/contact"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  Send a Patronus
+                  Contact
                 </Link>
               </li>
               <li>
@@ -129,7 +129,7 @@ export default function Footer() {
                   href="/privacy"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  Secrecy Statute
+                  Privacy Policy
                 </Link>
               </li>
               <li>
@@ -137,7 +137,7 @@ export default function Footer() {
                   href="/terms"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  Terms of Magical Binding
+                  Terms of Service
                 </Link>
               </li>
             </ul>
@@ -148,12 +148,11 @@ export default function Footer() {
         <div className="border-t border-green-200 pt-8 pb-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-green-700 font-serif">
-              © {new Date().getFullYear()} Confidential Crusaders. Protected by
-              ancient magic.
+              © {new Date().getFullYear()} ParchmentGuard. All rights reserved.
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0 text-sm text-black font-serif">
-              <span>Powered by Dark Arts Defense</span>
-              <span>Salazar-Approved Protection</span>
+              <span>Secure. Private. Compliant.</span>
+              <span>Built for Professionals</span>
             </div>
           </div>
         </div>
