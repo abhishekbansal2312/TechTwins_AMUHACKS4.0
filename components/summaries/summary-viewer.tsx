@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const SectionTitle = ({ title }: { title: string }) => {
   return (
     <motion.div
-      className="flex flex-col gap-2 mb-6 sticky top-0 text-white pt-2 pb-4 bg-emerald-600/90 backdrop-white-sm z-10"
+      className="flex flex-col gap-2 mb-6 sticky top-0 text-white pt-2 pb-4 bg-emerald-800/90 backdrop-white-sm z-10"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -122,7 +122,7 @@ export function SummaryViewer({ summary }: { summary: string }) {
       <Card
         className="relative px-2 h-[500px] sm:h-[400px] lg:h-[500px] 
                  w-full xl:w-[600px] bg-gradient-to-br 
-                 from-emerald-700 via--800 to-lime-200 
+                 from-emerald-400 via--800 to-lime-200 
                  backdrop-blur-lg shadow-xl rounded-2xl 
                  border border-green-500/30 overflow-hidden"
       >
