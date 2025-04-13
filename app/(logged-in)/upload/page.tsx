@@ -41,7 +41,7 @@ export default async function Page() {
         <UploadForm />
       </div>
       <div className="w-full flex justify-center py-6 sm:py-8">
-        <SummaryViewer summary={aboutUpload} />
+        {/* <SummaryViewer summary={aboutUpload} /> */}
       </div>
     </div>
   );
