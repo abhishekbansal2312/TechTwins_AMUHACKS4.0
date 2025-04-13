@@ -10,13 +10,13 @@ import { motion, AnimatePresence } from "framer-motion";
 const SectionTitle = ({ title }: { title: string }) => {
   return (
     <motion.div
-      className="flex flex-col gap-2 mb-6 sticky top-0 pt-2 pb-4 bg-emerald-950/80 backdrop-blur-xs z-10"
+      className="flex flex-col gap-2 mb-6 sticky top-0 text-white pt-2 pb-4 bg-emerald-600/90 backdrop-white-sm z-10"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
       <motion.h2
-        className="text-3xl lg:text-4xl font-bold text-center flex items-center justify-center gap-2 text-emerald-300 font-serif"
+        className="text-3xl lg:text-4xl font-bold text-center flex items-center justify-center gap-2 text-white-400 font-sans"
         initial={{ scale: 0.9 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.3, delay: 0.2 }}
@@ -43,14 +43,14 @@ export function SummaryViewer({ summary }: { summary: string }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Card className="bg-emerald-50 border-emerald-600/50 text-emerald-100">
+        <Card className="bg-green-900 border-green-600/40 text-slate-100">
           <CardHeader>
-            <CardTitle className="font-serif">
+            <CardTitle className="font-sans">
               No Magical Content Found
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-emerald-400">The Chamber appears to be empty.</p>
+            <p className="text-blue-400">The Chamber appears to be empty.</p>
           </CardContent>
         </Card>
       </motion.div>
@@ -122,12 +122,12 @@ export function SummaryViewer({ summary }: { summary: string }) {
       <Card
         className="relative px-2 h-[500px] sm:h-[400px] lg:h-[500px] 
                  w-full xl:w-[600px] bg-gradient-to-br 
-                 from-emerald-100 via-emerald-50 to-emerald-100
-                 backdrop-blur-lg shadow-2xl rounded-3xl 
-                 border border-emerald-500/40 overflow-hidden"
+                 from-emerald-700 via--800 to-lime-200 
+                 backdrop-blur-lg shadow-xl rounded-2xl 
+                 border border-green-500/30 overflow-hidden"
       >
-        <div className="absolute top-0 left-0 w-full h-4 bg-emerald-100"></div>
-        <div className="absolute top-0 right-8 w-8 h-8 rounded-full bg-emerald-500 shadow-lg shadow-emerald-400/30 mt-6 mr-4"></div>
+        <div className="absolute top-0 left-0 w-full h-4 bg-emerald-800"></div>
+        <div className="absolute top-0 right-8 w-8 h-8 rounded-full bg-emerald-600 shadow-lg shadow-blue-500/20 mt-6 mr-4"></div>
 
         <ProgressBar sections={sections} currentSection={currentSection} />
 
@@ -143,7 +143,7 @@ export function SummaryViewer({ summary }: { summary: string }) {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="min-h-[200px] text-emerald-100"
+                className="min-h-[200px] text-slate-300"
               >
                 <ContentSection points={points} />
               </motion.div>
@@ -159,7 +159,7 @@ export function SummaryViewer({ summary }: { summary: string }) {
           onSectionSelect={handleSectionSelect}
         />
 
-        <div className="absolute bottom-0 left-0 w-full h-3 bg-emerald-100"></div>
+        <div className="absolute bottom-0 left-0 w-full h-3 bg-emerald-800"></div>
       </Card>
     </motion.div>
   );
