@@ -99,49 +99,6 @@ export default function PricingInfo() {
           </p>
         </div>
 
-        {/* Business Model Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="bg-white p-6 rounded-lg mb-12 shadow"
-        >
-          <h3 className="text-xl font-semibold text-gray-800 mb-4 text-left">
-            Business Model Options
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-            {[
-              {
-                title: "Subscription-Based",
-                desc: "Tiered subscription plans based on features or usage.",
-              },
-              {
-                title: "Pay-Per-Use",
-                desc: "Charge based on the number of documents processed.",
-              },
-              {
-                title: "Enterprise Solutions",
-                desc: "Customizable plans for organizations with specialized needs.",
-              },
-              {
-                title: "Freemium",
-                desc: "A free tier with optional upgrades for more features.",
-              },
-            ].map((model, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-green-100 text-green-700 font-semibold flex items-center justify-center">
-                  {i + 1}
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">{model.title}</h4>
-                  <p className="text-sm text-gray-600">{model.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Pricing Cards */}
         <motion.div
           className="flex flex-col lg:flex-row justify-center items-stretch gap-8"
