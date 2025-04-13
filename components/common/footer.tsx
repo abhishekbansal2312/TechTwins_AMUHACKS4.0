@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="flex flex-col space-y-4">
             <div className="text-2xl font-bold bg-gradient-to-r from-green-700 to-emerald-500 bg-clip-text text-transparent font-serif">
-              ParchmentGuard
+              Identity Secure
             </div>
             <p className="text-gray-700 text-sm font-serif">
               Seamlessly protect sensitive documents with intelligent, real-time
@@ -148,7 +148,8 @@ export default function Footer() {
         <div className="border-t border-green-200 pt-8 pb-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-green-700 font-serif">
-              © {new Date().getFullYear()} ParchmentGuard. All rights reserved.
+              © {new Date().getFullYear()} Identity Secure . All rights
+              reserved.
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0 text-sm text-black font-serif">
               <span>Secure. Private. Compliant.</span>
