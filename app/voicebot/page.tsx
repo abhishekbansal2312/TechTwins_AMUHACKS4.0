@@ -11,9 +11,10 @@ import {
   MicOff,
   Volume2,
   VolumeX,
-  Wand2,
-  Sparkles,
-  Scroll,
+  MessageCircle,
+  Info,
+  Send,
+  User,
 } from "lucide-react";
 import BotHandler from "@/components/voicebot/bot-handler";
 
@@ -35,13 +36,9 @@ export default function VoiceBotPage() {
   >([
     {
       role: "bot",
-      content:
-        "Hello! I'm your magical AI assistant. How can I help you today?",
+      content: "Hello! I'm your AI voice assistant. How can I help you today?",
     },
   ]);
-  const [trainingMode, setTrainingMode] = useState(false);
-  const [trainingData, setTrainingData] = useState<string>("");
-  const [showMagicEffect, setShowMagicEffect] = useState(false);
 
   // Initialize speech recognition
   const [recognition, setRecognition] = useState<any>(null);
@@ -121,10 +118,6 @@ export default function VoiceBotPage() {
     setConversation(updatedConversation);
     setTranscript("");
 
-    // Show magic effect
-    setShowMagicEffect(true);
-    setTimeout(() => setShowMagicEffect(false), 2000);
-
     try {
       // Get response from bot handler
       const botResponse = await BotHandler.processUserInput(
@@ -133,7 +126,7 @@ export default function VoiceBotPage() {
           role: item.role === "bot" ? "assistant" : "user",
           content: item.content,
         })),
-        trainingData
+        ""
       );
 
       // Add bot response to conversation
@@ -157,231 +150,215 @@ export default function VoiceBotPage() {
     }
   };
 
-  const handleTrainingDataChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setTrainingData(e.target.value);
-  };
-
-  const handleTrainModel = () => {
-    // In a real implementation, you would train the model here
-    setShowMagicEffect(true);
-    setTimeout(() => {
-      setShowMagicEffect(false);
-      alert(
-        "Training complete! The magical assistant will now use this wisdom to improve responses."
-      );
-    }, 2000);
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 dark:from-green-900 dark:to-gray-900">
-      <div className="container max-w-4xl mx-auto py-8 px-4 relative">
-        {showMagicEffect && (
-          <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-            <div className="animate-pulse">
-              <Sparkles className="h-32 w-32 text-green-500 opacity-50" />
-            </div>
-          </div>
-        )}
-
-        <div className="text-center mb-8">
-          <h1 className="inline-flex items-center text-3xl font-bold mb-2 bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
-            <Wand2 className="mr-2 h-8 w-8 text-green-500" />
-            Magical AI Assistant
+    <div className="h-screen bg-gray-100 dark:bg-gray-900 flex">
+      {/* Left sidebar - Introduction */}
+      <div className="w-1/3 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 hidden md:block">
+        <div className="p-4 bg-teal-600 dark:bg-teal-800 text-white">
+          <h1 className="text-xl font-bold mb-1 flex items-center">
+            <MessageCircle className="mr-2 h-5 w-5" />
+            Voice Assistant
           </h1>
-          <p className="text-green-700 dark:text-green-300 mb-6">
-            Speak with our enchanted AI using your voice. All spells are cast
-            locally.
-          </p>
+          <p className="text-sm opacity-90">Powered by AI</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card className="p-4 border border-green-200 dark:border-green-800 bg-white dark:bg-gray-800 shadow-lg hover:shadow-green-200 dark:hover:shadow-green-900 transition-all duration-300 flex flex-col items-center justify-center">
-            <div className="w-16 h-16 mb-4 rounded-full bg-green-100 dark:bg-green-800 flex items-center justify-center">
-              <Mic className="h-8 w-8 text-green-600 dark:text-green-300" />
-            </div>
-            <h3 className="font-semibold mb-2 text-green-800 dark:text-green-300">
-              1. Speak Your Request
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300 text-center mb-4">
-              Tap to start, then speak your question clearly
+        <div className="p-6">
+          <Card className="bg-gray-50 dark:bg-gray-700 p-4 mb-6 shadow-sm">
+            <h2 className="text-lg font-semibold mb-3 flex items-center text-teal-700 dark:text-teal-300">
+              <Info className="mr-2 h-4 w-4" />
+              About This Assistant
+            </h2>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+              This voice assistant uses Web Speech API to convert your speech to
+              text and process your requests in real-time.
             </p>
-            <Button
-              onClick={toggleListening}
-              variant={isListening ? "destructive" : "default"}
-              size="lg"
-              className={`mt-2 ${
-                isListening ? "bg-red-600" : "bg-green-600 hover:bg-green-700"
-              } text-white transition-all duration-300`}
-            >
-              {isListening ? (
-                <MicOff className="mr-2" />
-              ) : (
-                <Mic className="mr-2" />
-              )}
-              {isListening ? "Stop Listening" : "Start Listening"}
-            </Button>
+            <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-2">
+              <li className="flex items-start">
+                <span className="text-teal-500 mr-2">•</span>
+                <span>Ask questions by speaking naturally</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-teal-500 mr-2">•</span>
+                <span>Get instant AI-powered responses</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-teal-500 mr-2">•</span>
+                <span>Hear responses read back to you</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-teal-500 mr-2">•</span>
+                <span>All processing happens on your device</span>
+              </li>
+            </ul>
           </Card>
 
-          <Card className="p-4 border border-green-200 dark:border-green-800 bg-white dark:bg-gray-800 shadow-lg hover:shadow-green-200 dark:hover:shadow-green-900 transition-all duration-300 flex flex-col items-center justify-center">
-            <div className="w-16 h-16 mb-4 rounded-full bg-green-100 dark:bg-green-800 flex items-center justify-center">
-              <Sparkles className="h-8 w-8 text-green-600 dark:text-green-300" />
-            </div>
-            <h3 className="font-semibold mb-2 text-green-800 dark:text-green-300">
-              2. Magic at Work
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300 text-center mb-4">
-              The enchanted AI processes your request
-            </p>
-            <div className="relative w-24 h-24 flex items-center justify-center">
-              <Bot
-                size={48}
-                className="text-green-600 dark:text-green-400 z-10"
-              />
-              <div
-                className={`absolute inset-0 rounded-full bg-green-100 dark:bg-green-800 opacity-50 ${
-                  showMagicEffect ? "animate-ping" : ""
-                }`}
-              ></div>
-            </div>
+          <Card className="bg-gray-50 dark:bg-gray-700 p-4 shadow-sm">
+            <h2 className="text-lg font-semibold mb-3 flex items-center text-teal-700 dark:text-teal-300">
+              <Mic className="mr-2 h-4 w-4" />
+              How To Use
+            </h2>
+            <ol className="text-sm text-gray-600 dark:text-gray-300 space-y-3">
+              <li className="flex items-start">
+                <span className="bg-teal-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 flex-shrink-0">
+                  1
+                </span>
+                <span>Click the microphone button to start listening</span>
+              </li>
+              <li className="flex items-start">
+                <span className="bg-teal-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 flex-shrink-0">
+                  2
+                </span>
+                <span>Speak your question or request clearly</span>
+              </li>
+              <li className="flex items-start">
+                <span className="bg-teal-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 flex-shrink-0">
+                  3
+                </span>
+                <span>Click the microphone again to process your request</span>
+              </li>
+              <li className="flex items-start">
+                <span className="bg-teal-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 flex-shrink-0">
+                  4
+                </span>
+                <span>Listen to the response or read it in the chat</span>
+              </li>
+            </ol>
           </Card>
+        </div>
+      </div>
 
-          <Card className="p-4 border border-green-200 dark:border-green-800 bg-white dark:bg-gray-800 shadow-lg hover:shadow-green-200 dark:hover:shadow-green-900 transition-all duration-300 flex flex-col items-center justify-center">
-            <div className="w-16 h-16 mb-4 rounded-full bg-green-100 dark:bg-green-800 flex items-center justify-center">
-              <Volume2 className="h-8 w-8 text-green-600 dark:text-green-300" />
+      {/* Main chat area - WhatsApp style */}
+      <div className="flex-1 flex flex-col h-full">
+        {/* Chat header */}
+        <div className="bg-teal-600 dark:bg-teal-800 p-3 text-white flex items-center justify-between">
+          <div className="flex items-center">
+            <Bot className="h-8 w-8 mr-2 p-1 bg-white text-teal-600 rounded-full" />
+            <div>
+              <h2 className="font-medium">AI Assistant</h2>
+              <p className="text-xs opacity-80">
+                {isListening
+                  ? "Listening..."
+                  : isSpeaking
+                  ? "Speaking..."
+                  : "Online"}
+              </p>
             </div>
-            <h3 className="font-semibold mb-2 text-green-800 dark:text-green-300">
-              3. Hear the Wisdom
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300 text-center mb-4">
-              Listen to the enchanted response
-            </p>
+          </div>
+          <div>
             <Button
               onClick={
                 isSpeaking
                   ? stopSpeaking
                   : () => response && speakText(response)
               }
-              variant={isSpeaking ? "destructive" : "outline"}
-              size="lg"
-              className={`mt-2 ${
-                isSpeaking
-                  ? "bg-red-600 text-white"
-                  : "border-green-600 text-green-600 hover:bg-green-100"
-              } transition-all duration-300`}
+              variant="ghost"
+              size="sm"
+              className="text-white hover:bg-teal-700"
             >
               {isSpeaking ? (
-                <VolumeX className="mr-2" />
+                <VolumeX className="h-5 w-5" />
               ) : (
-                <Volume2 className="mr-2" />
+                <Volume2 className="h-5 w-5" />
               )}
-              {isSpeaking ? "Stop Speaking" : "Repeat Response"}
             </Button>
-          </Card>
+          </div>
         </div>
 
-        <Card className="mb-6 p-4 border border-green-200 dark:border-green-800 bg-white dark:bg-gray-800 shadow-lg overflow-hidden">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold flex items-center text-green-800 dark:text-green-300">
-              <Scroll className="mr-2 h-6 w-6" />
-              Magical Conversation
-            </h2>
-            <Badge
-              variant={isListening ? "default" : "outline"}
-              className={
-                isListening ? "bg-green-500" : "border-green-500 text-green-500"
-              }
+        {/* Chat messages */}
+        <div className="flex-1 overflow-y-auto p-4 bg-[#e5ded8] dark:bg-gray-900 bg-opacity-80 dark:bg-opacity-60 bg-[url('/whatsapp-bg.png')] bg-repeat">
+          {conversation.map((item, index) => (
+            <div
+              key={index}
+              className={`mb-4 max-w-xs ${
+                item.role === "user" ? "ml-auto" : "mr-auto"
+              }`}
             >
-              {isListening ? "Listening..." : "Not Listening"}
-            </Badge>
-          </div>
-
-          <div className="bg-green-50 dark:bg-gray-900 rounded-md p-4 h-96 overflow-y-auto mb-4 scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-green-100 dark:scrollbar-track-gray-800">
-            {conversation.map((item, index) => (
               <div
-                key={index}
-                className={`mb-4 p-3 rounded-lg ${
+                className={`p-3 rounded-lg shadow-sm ${
                   item.role === "user"
-                    ? "bg-green-100 dark:bg-green-900 ml-8 shadow-md border-l-4 border-green-600"
-                    : "bg-gray-50 dark:bg-gray-800 mr-8 shadow-md border-l-4 border-green-400"
+                    ? "bg-teal-100 dark:bg-teal-700 rounded-tr-none"
+                    : "bg-white dark:bg-gray-800 rounded-tl-none"
                 }`}
               >
-                <div className="font-semibold mb-1 flex items-center">
-                  {item.role === "user" ? (
-                    <>
-                      You
-                      <div className="ml-2 h-2 w-2 rounded-full bg-green-500"></div>
-                    </>
-                  ) : (
-                    <>
-                      <Wand2 className="mr-1 h-4 w-4 text-green-600" />
-                      Magical Assistant
-                    </>
-                  )}
-                </div>
-                <div className="text-gray-700 dark:text-gray-300">
+                <div className="text-gray-800 dark:text-gray-200 text-sm">
                   {item.content}
                 </div>
-              </div>
-            ))}
-
-            {isListening && transcript && (
-              <div className="mb-4 p-3 rounded-lg bg-green-100 dark:bg-green-900 ml-8 shadow-md border-l-4 border-yellow-400 animate-pulse">
-                <div className="font-semibold mb-1 flex items-center">
-                  You{" "}
-                  <div className="ml-2 h-2 w-2 rounded-full bg-yellow-500 animate-ping"></div>
+                <div className="text-right text-xs mt-1 text-gray-500 dark:text-gray-400">
+                  {new Date().toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                  {item.role === "user" && (
+                    <span className="ml-1 text-teal-600 dark:text-teal-400">
+                      ✓✓
+                    </span>
+                  )}
                 </div>
-                <div className="text-gray-700 dark:text-gray-300">
+              </div>
+            </div>
+          ))}
+
+          {isListening && transcript && (
+            <div className="mb-4 max-w-xs ml-auto">
+              <div className="p-3 rounded-lg shadow-sm bg-gray-100 dark:bg-gray-700 rounded-tr-none border-teal-200 dark:border-teal-600 opacity-75">
+                <div className="text-gray-700 dark:text-gray-300 text-sm italic">
                   {transcript}
                 </div>
+                <div className="flex justify-end items-center mt-1 text-xs text-gray-500">
+                  <span className="mr-1">Recording</span>
+                  <div className="h-2 w-2 rounded-full bg-red-500 animate-pulse"></div>
+                </div>
               </div>
-            )}
-          </div>
-        </Card>
-
-        <Card className="p-4 mb-6 border border-green-200 dark:border-green-800 bg-white dark:bg-gray-800 shadow-lg">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold flex items-center text-green-800 dark:text-green-300">
-              <Button
-                variant="outline"
-                size="sm"
-                className="mr-2 border-green-500 text-green-600 hover:bg-green-100"
-                onClick={() => setTrainingMode(!trainingMode)}
-              >
-                {trainingMode ? "Hide" : "Show"}
-              </Button>
-              <Scroll className="mr-2 h-5 w-5 text-green-600" />
-              Magical Training Tome
-            </h2>
-          </div>
-
-          {trainingMode && (
-            <div className="border border-green-200 dark:border-green-700 rounded-lg p-4 bg-green-50 dark:bg-gray-900">
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                Enhance your magical assistant by providing example
-                incantations. Format: User: [question] Bot: [ideal response]
-              </p>
-              <textarea
-                className="w-full h-40 p-3 border border-green-300 dark:border-green-700 rounded-md bg-white dark:bg-gray-800 focus:ring-2 focus:ring-green-500 focus:border-transparent mb-4 text-gray-800 dark:text-gray-200"
-                placeholder="User: What are your hours of operation?
-Bot: We're open Monday through Friday from 9 AM to 5 PM.
-
-User: Do you offer refunds?
-Bot: Yes, we offer full refunds within 30 days of purchase."
-                value={trainingData}
-                onChange={handleTrainingDataChange}
-              />
-              <Button
-                onClick={handleTrainModel}
-                className="bg-green-600 hover:bg-green-700 text-white flex items-center"
-              >
-                <Wand2 className="mr-2 h-4 w-4" />
-                Cast Training Spell
-              </Button>
             </div>
           )}
-        </Card>
+        </div>
+
+        {/* Input area */}
+        <div className="bg-white dark:bg-gray-800 p-3 border-t border-gray-200 dark:border-gray-700 flex items-center">
+          <Button
+            onClick={toggleListening}
+            variant="ghost"
+            size="icon"
+            className={`rounded-full h-10 w-10 ${
+              isListening
+                ? "bg-red-500 hover:bg-red-600 text-white"
+                : "bg-teal-500 hover:bg-teal-600 text-white"
+            }`}
+          >
+            {isListening ? (
+              <MicOff className="h-5 w-5" />
+            ) : (
+              <Mic className="h-5 w-5" />
+            )}
+          </Button>
+
+          <div className="flex-1 mx-3 p-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-gray-500 dark:text-gray-300 flex items-center">
+            {isListening ? (
+              <div className="flex items-center">
+                <div className="h-2 w-2 rounded-full bg-red-500 animate-pulse mr-2"></div>
+                <span>Listening... {transcript ? "Tap mic to send" : ""}</span>
+              </div>
+            ) : (
+              <span>Tap the microphone to speak</span>
+            )}
+          </div>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            className={`rounded-full h-10 w-10 bg-teal-500 hover:bg-teal-600 text-white ${
+              !isListening || !transcript ? "opacity-50" : ""
+            }`}
+            onClick={() => {
+              if (isListening && transcript) {
+                toggleListening(); // Stop listening and process
+              }
+            }}
+            disabled={!isListening || !transcript}
+          >
+            <Send className="h-5 w-5" />
+          </Button>
+        </div>
       </div>
     </div>
   );
