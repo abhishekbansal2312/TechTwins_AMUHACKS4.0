@@ -1,6 +1,6 @@
 import BgGradient from "@/components/common/bg-gradient";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Plus, Shield, AlertTriangle } from "lucide-react";
+import { ArrowRight, Plus } from "lucide-react";
 import Link from "next/link";
 import SummaryCard from "@/components/summaries/summary-card";
 import { getSummaries } from "@/lib/summaries";
@@ -32,11 +32,11 @@ async function DashboardContent() {
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2">
           <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-amber-600 to-red-700 bg-clip-text text-transparent">
-            The Marauder's Secrecy Reports
+            Privacy Scan Reports
           </h1>
           <p className="text-gray-600">
-            Cast the revealing charm on your parchments to detect magical
-            identifiers
+            Scan your uploaded documents for sensitive or personally
+            identifiable information.
           </p>
         </div>
 
@@ -46,13 +46,13 @@ async function DashboardContent() {
             className="bg-amber-500 opacity-50 cursor-not-allowed"
           >
             <Plus className="w-5 h-5 mr-2" />
-            New Charm
+            New Scan
           </Button>
         ) : (
           <Link href="/upload">
             <Button className="bg-amber-500 hover:bg-red-700 hover:scale-105 transition-all">
               <Plus className="w-5 h-5 mr-2" />
-              New Charm
+              New Scan
             </Button>
           </Link>
         )}
@@ -62,14 +62,14 @@ async function DashboardContent() {
       {hasReachedLimit && (
         <div className="border border-amber-300 bg-amber-100 text-amber-700 p-4 rounded-lg">
           <strong>
-            You've reached your daily charm limit of {uploadLimit} scans.
+            You've reached your daily scan limit of {uploadLimit} uploads.
           </strong>{" "}
-          Upgrade to our Extraordinary Wizarding Level plan for more!
+          Upgrade your plan to unlock more scans.
           <Link
             href="/#pricing"
             className="ml-2 text-red-700 font-semibold hover:underline"
           >
-            Upgrade to O.W.L. Plan <ArrowRight className="w-4 h-4 inline" />
+            View Plans <ArrowRight className="w-4 h-4 inline" />
           </Link>
         </div>
       )}
@@ -82,7 +82,6 @@ async function DashboardContent() {
               key={index}
               summary={{
                 ...summary,
-                // Add a piiStatus class based on whether PII was found
                 piiStatus: summary
                   ? "bg-red-100 border-red-300"
                   : "bg-emerald-100 border-emerald-300",
