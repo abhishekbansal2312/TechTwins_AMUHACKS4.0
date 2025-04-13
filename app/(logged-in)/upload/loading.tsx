@@ -58,18 +58,6 @@ export default function Loading() {
       </div>
 
       {/* Summary viewer skeleton */}
-      <div className="w-full flex justify-center py-6 sm:py-8">
-        <div className="w-full max-w-3xl p-6 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm rounded-xl shadow-lg">
-          <div className="space-y-4">
-            <div className="h-7 w-1/3 bg-gray-200 dark:bg-gray-800/60 rounded-md animate-pulse" />
-            <div className="space-y-2">
-              <div className="h-4 w-full bg-gray-200 dark:bg-gray-800/60 rounded-md animate-pulse" />
-              <div className="h-4 w-full bg-gray-200 dark:bg-gray-800/60 rounded-md animate-pulse" />
-              <div className="h-4 w-3/4 bg-gray-200 dark:bg-gray-800/60 rounded-md animate-pulse" />
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
