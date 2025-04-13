@@ -1,18 +1,18 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import {
-  Wand,
+  FileText,
+  Eye,
   Shield,
   Sparkles,
-  Eye,
-  FileText,
-  CheckCircle,
-  RefreshCw,
   Search,
+  RefreshCw,
+  CheckCircle,
+  BarChart,
 } from "lucide-react";
 import BgGradient from "@/components/common/bg-gradient";
 
-export default function MaraudersMapWorkflow() {
+export default function DataProcessingWorkflow() {
   const [activeStep, setActiveStep] = useState(0);
   const [revealed, setRevealed] = useState(false);
 
@@ -34,13 +34,13 @@ export default function MaraudersMapWorkflow() {
     };
   }, []);
 
-  // Workflow steps with Harry Potter theming
+  // Workflow steps with professional theming
   const steps = [
     {
       id: "upload",
-      title: "Document Delivery",
+      title: "Document Upload",
       icon: <FileText size={24} />,
-      description: "I solemnly swear that I am uploading documents",
+      description: "Documents are uploaded to the system for processing",
       x: 15,
       y: 20,
       connections: ["ocr"],
@@ -48,9 +48,9 @@ export default function MaraudersMapWorkflow() {
     },
     {
       id: "ocr",
-      title: "Revelio Charm",
+      title: "Text Extraction",
       icon: <Eye size={24} />,
-      description: "Extracting secrets from magical parchments",
+      description: "Content is extracted from documents using OCR technology",
       x: 35,
       y: 65,
       connections: ["detection"],
@@ -58,9 +58,9 @@ export default function MaraudersMapWorkflow() {
     },
     {
       id: "detection",
-      title: "PII Detection Enchantment",
+      title: "PII Detection",
       icon: <Search size={24} />,
-      description: "Locating hidden personal identifiers",
+      description: "System identifies potential personal information",
       x: 65,
       y: 25,
       connections: ["validation"],
@@ -68,9 +68,9 @@ export default function MaraudersMapWorkflow() {
     },
     {
       id: "validation",
-      title: "Pattern Validation Spell",
+      title: "Pattern Validation",
       icon: <RefreshCw size={24} />,
-      description: "Confirming the nature of detected secrets",
+      description: "Validating detected information against known patterns",
       x: 80,
       y: 70,
       connections: ["protection"],
@@ -78,9 +78,9 @@ export default function MaraudersMapWorkflow() {
     },
     {
       id: "protection",
-      title: "Protego Shield",
+      title: "Data Protection",
       icon: <Shield size={24} />,
-      description: "Casting protective enchantments on sensitive data",
+      description: "Applying security measures to sensitive information",
       x: 50,
       y: 85,
       connections: ["reporting"],
@@ -88,9 +88,9 @@ export default function MaraudersMapWorkflow() {
     },
     {
       id: "reporting",
-      title: "Pensieve Dashboard",
-      icon: <Sparkles size={24} />,
-      description: "Reviewing all magical findings",
+      title: "Analytics Dashboard",
+      icon: <BarChart size={24} />,
+      description: "Comprehensive overview of processing results",
       x: 20,
       y: 50,
       connections: [],
@@ -98,8 +98,8 @@ export default function MaraudersMapWorkflow() {
     },
   ];
 
-  // Create a footstep path between points
-  const MaraudersPath = ({
+  // Create a connection path between points
+  const DataPath = ({
     start,
     end,
     active,
@@ -140,13 +140,13 @@ export default function MaraudersMapWorkflow() {
       path = `M ${start.x} ${start.y} L ${end.x} ${end.y}`;
     }
 
-    // Create footstep dots
-    const createFootsteps = () => {
-      const footsteps = [];
-      const numSteps = 12;
+    // Create data flow indicator dots
+    const createFlowDots = () => {
+      const dots = [];
+      const numDots = 12;
 
-      for (let i = 0; i < numSteps; i++) {
-        const progress = i / (numSteps - 1);
+      for (let i = 0; i < numDots; i++) {
+        const progress = i / (numDots - 1);
         const opacity = active ? 1 - Math.abs(progress - 0.5) * 1.5 : 0.2;
         const size = active ? 3 : 2;
 
@@ -188,26 +188,26 @@ export default function MaraudersMapWorkflow() {
           y = start.y + (end.y - start.y) * progress;
         }
 
-        footsteps.push(
+        dots.push(
           <circle
             key={i}
             cx={x}
             cy={y}
             r={size}
             className={`transition-all duration-500 ${
-              active ? "fill-amber-700" : "fill-amber-900"
+              active ? "fill-blue-600" : "fill-blue-400"
             }`}
             style={{
               opacity: opacity,
               filter: active
-                ? "drop-shadow(0 0 2px rgba(255, 215, 0, 0.6))"
+                ? "drop-shadow(0 0 2px rgba(37, 99, 235, 0.6))"
                 : "none",
             }}
           />
         );
       }
 
-      return footsteps;
+      return dots;
     };
 
     return (
@@ -218,12 +218,12 @@ export default function MaraudersMapWorkflow() {
         <path
           d={path}
           fill="none"
-          stroke={active ? "#92400e" : "#78350f"}
+          stroke={active ? "#2563eb" : "#60a5fa"}
           strokeWidth={active ? 2 : 1}
           strokeDasharray={active ? "none" : "4 4"}
           className="transition-all duration-300"
         />
-        {createFootsteps()}
+        {createFlowDots()}
       </g>
     );
   };
@@ -232,29 +232,24 @@ export default function MaraudersMapWorkflow() {
     <div className="w-full max-w-4xl mx-auto m-20">
       <BgGradient />
       <div
-        className="bg-amber-100 p-6 rounded-lg overflow-hidden relative transition-all duration-1000"
+        className="bg-white p-6 rounded-lg overflow-hidden relative transition-all duration-1000"
         style={{
-          backgroundImage: "url('https://wallpapercave.com/wp/wp1896051.jpg')",
-          backgroundSize: "cover", // makes image cover the whole div
-          backgroundPosition: "center", // centers the image
-          backgroundRepeat: "no-repeat", // prevents tiling
-          border: "8px solid #92400e",
-          boxShadow:
-            "inset 0 0 50px rgba(120, 53, 15, 0.2), 0 10px 30px rgba(0, 0, 0, 0.3)",
+          border: "1px solid #e5e7eb",
+          boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
           minHeight: "600px",
           transform: revealed ? "scale(1)" : "scale(0.95)",
           opacity: revealed ? 1 : 0.7,
         }}
       >
-        <div className="text-center mb-8 opacity-90">
+        <div className="text-center mb-8">
           <h1
-            className="text-3xl bg-amber-200 font-bold text-amber-950 mb-2 font-serif tracking-wide"
-            style={{ textShadow: "1px 1px 2px rgba(120, 53, 15, 0.3)" }}
+            className="text-3xl font-bold text-gray-800 mb-2"
+            style={{ textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)" }}
           >
-            The Identity Protector's Map
+            Identity Protection Workflow
           </h1>
-          <h2 className="text-xl bg-amber-100 text-amber-800 italic font-serif">
-            Confidential Crusaders Solemnly Swear They Are Up To Data Protection
+          <h2 className="text-xl text-gray-600">
+            Secure Document Processing Pipeline
           </h2>
         </div>
 
@@ -273,7 +268,7 @@ export default function MaraudersMapWorkflow() {
                 const isActive = idx === activeStep;
 
                 return (
-                  <MaraudersPath
+                  <DataPath
                     key={`${step.id}-${targetId}`}
                     start={startPoint}
                     end={endPoint}
@@ -309,51 +304,46 @@ export default function MaraudersMapWorkflow() {
                 }}
               >
                 <div
-                  className={`p-3 rounded-lg font-serif border-2 transition-all duration-300`}
+                  className={`p-3 rounded-lg border transition-all duration-300`}
                   style={{
                     backgroundColor: isActive
-                      ? "rgba(255, 237, 213, 0.6)"
-                      : "rgba(254, 243, 199, 0.6)", // amber colors with opacity
-                    borderColor: isActive ? "#92400e" : "#b45309",
+                      ? "rgba(243, 244, 246, 0.9)"
+                      : "rgba(255, 255, 255, 0.9)",
+                    borderColor: isActive ? "#2563eb" : "#d1d5db",
                     boxShadow: isActive
-                      ? "0 0 15px rgba(146, 64, 14, 0.5)"
-                      : "0 0 5px rgba(146, 64, 14, 0.2)",
+                      ? "0 0 15px rgba(37, 99, 235, 0.3)"
+                      : "0 0 5px rgba(0, 0, 0, 0.1)",
                     width: "200px",
                   }}
                 >
                   <div className="flex items-center mb-2">
                     <div
                       className={`p-2 rounded-full mr-2 ${
-                        isActive ? "bg-amber-700" : "bg-amber-600"
+                        isActive
+                          ? "bg-blue-600 text-white"
+                          : "bg-blue-100 text-blue-600"
                       }`}
                     >
                       {step.icon}
                     </div>
-                    <h3 className="text-lg font-bold text-black z-20">
+                    <h3 className="text-lg font-bold text-gray-800 z-20">
                       {step.title}
                     </h3>
                   </div>
-                  <p className="text-amber-800 text-sm italic">
-                    {step.description}
-                  </p>
+                  <p className="text-gray-600 text-sm">{step.description}</p>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Footer with ink splotches */}
+        {/* Footer */}
         <div className="absolute bottom-4 right-4">
-          <div className="inline-flex items-center px-4 py-2 bg-amber-50 border-2 border-amber-900 rounded-sm rotate-3 font-serif text-amber-950">
-            <Wand size={16} className="mr-2 text-amber-800" />
-            <span className="italic">Mischief Managed</span>
+          <div className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 rounded-md">
+            <CheckCircle size={16} className="mr-2 text-green-600" />
+            <span className="text-gray-700">Secure processing enabled</span>
           </div>
         </div>
-
-        {/* Decorative ink splotches */}
-        <div className="absolute top-6 left-10 w-20 h-8 bg-amber-900 opacity-5 rounded-full transform rotate-12" />
-        <div className="absolute bottom-16 left-20 w-12 h-12 bg-amber-950 opacity-5 rounded-full transform -rotate-12" />
-        <div className="absolute top-24 right-12 w-16 h-6 bg-amber-800 opacity-5 rounded-full transform -rotate-6" />
       </div>
     </div>
   );
