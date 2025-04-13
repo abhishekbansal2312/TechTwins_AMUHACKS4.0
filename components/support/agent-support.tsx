@@ -35,7 +35,7 @@ export function AgentSupport() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Agent.ai instance
-  const agent = new createAgent({
+  const agent = createAgent({
     name: "Identity Protection Assistant",
     knowledgeBase: "identity-protection",
     privacyLevel: "high",
