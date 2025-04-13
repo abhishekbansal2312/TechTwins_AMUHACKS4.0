@@ -13,12 +13,11 @@ const About: React.FC = () => {
       <main className="pemerald pemerald-lg max-w-none">
         <h2 className="text-2xl font-bold text-black mb-4">Our Mission</h2>
         <p className="text-gray-700 mb-6">
-          At Confidential Crusaders, we're on a mission to help protect personal
-          data and prevent information breaches. Our AI-powered tool scans
-          documents for personally identifiable information (PII) such as Aadhar
-          cards, PAN numbers, credit card information, and more. We help you
-          maintain data privacy and security in an increasingly vulnerable
-          digital world.
+          At Identity Secure, we're on a mission to help protect personal data
+          and prevent information breaches. Our AI-powered tool scans documents
+          for personally identifiable information (PII) such as Aadhar cards,
+          PAN numbers, credit card information, and more. We help you maintain
+          data privacy and security in an increasingly vulnerable digital world.
         </p>
 
         <div className="bg-white p-8 rounded-lg shadow-sm mb-12">

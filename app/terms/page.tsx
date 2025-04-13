@@ -19,8 +19,8 @@ const TermsOfService: React.FC = () => {
             By accessing or using Identity Secure, you agree to be bound by
             these Terms of Service. If you disagree with any part of the terms,
             you may not access the service. These Terms of Service constitute
-            the entire agreement between you and Confidential Crusaders
-            regarding the use of our services.
+            the entire agreement between you and Identity Secure regarding the
+            use of our services.
           </p>
 
           <h2 className="text-2xl font-bold text-black mb-4">2. Services</h2>
@@ -89,15 +89,14 @@ const TermsOfService: React.FC = () => {
             7. Limitation of Liability
           </h2>
           <p className="text-gray-700 mb-6">
-            In no event shall Confidential Crusaders, nor its directors,
-            employees, partners, agents, suppliers, or affiliates, be liable for
-            any indirect, incidental, special, consequential or punitive
-            damages, including without limitation, loss of profits, data, use,
-            goodwill, or other intangible losses, resulting from your access to
-            or use of or inability to access or use the service. We do not
-            guarantee the complete detection of all PII in all documents, and
-            users should verify results before making critical security
-            decisions.
+            In no event shall Identity Secure, nor its directors, employees,
+            partners, agents, suppliers, or affiliates, be liable for any
+            indirect, incidental, special, consequential or punitive damages,
+            including without limitation, loss of profits, data, use, goodwill,
+            or other intangible losses, resulting from your access to or use of
+            or inability to access or use the service. We do not guarantee the
+            complete detection of all PII in all documents, and users should
+            verify results before making critical security decisions.
           </p>
 
           <h2 className="text-2xl font-bold text-black mb-4">

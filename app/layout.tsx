@@ -15,9 +15,8 @@ const fontsans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Confidential Crusaders",
-  description:
-    "Confidential Crusaders is an app to Confidential Crusaders text.",
+  title: "Identity Secure",
+  description: "Identity Secure is an app to Identity Secure text.",
 };
 
 export default function RootLayout({
