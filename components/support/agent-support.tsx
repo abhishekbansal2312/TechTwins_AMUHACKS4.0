@@ -20,7 +20,7 @@ export function AgentSupport() {
   const [messages, setMessages] = useState<Message[]>([
     {
       content:
-        "Hello! I'm your Identity Protector assistant. How can I help you today?",
+        "Hello! I'm your Identity Secure assistant. How can I help you today?",
       role: "assistant",
       timestamp: new Date(),
     },
@@ -165,7 +165,7 @@ export function AgentSupport() {
                 >
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
-                <h3 className="font-semibold">Identity Protector Support</h3>
+                <h3 className="font-semibold">Identity Secure Support</h3>
               </div>
               <Badge className="bg-blue-800">AI Powered</Badge>
             </div>

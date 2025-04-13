@@ -1,8 +1,8 @@
-# Identity Protector - AI-Powered PII Detection & Protection SaaS
+# Identity Secure - AI-Powered PII Detection & Protection SaaS
 
 [![Live Demo]()]
 
-Identity Protector is an AI-powered SaaS application built with Next.js that detects and protects personally identifiable information (PII) in uploaded documents. The application features secure document scanning, automated redaction, and an intuitive dashboard for managing privacy protection and compliance.
+Identity Secure is an AI-powered SaaS application built with Next.js that detects and protects personally identifiable information (PII) in uploaded documents. The application features secure document scanning, automated redaction, and an intuitive dashboard for managing privacy protection and compliance.
 
 ## ✨ Features
 

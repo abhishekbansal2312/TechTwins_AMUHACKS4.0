@@ -153,7 +153,7 @@ const JourneyBenefits: React.FC = () => {
             className="text-4xl font-bold mb-6 text-green-300"
             variants={fadeInUp}
           >
-            Why Choose Identity Protector
+            Why Choose Identity Secure
           </motion.h2>
           <motion.div
             className="h-1 w-24 bg-green-500 mx-auto mb-6"

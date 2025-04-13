@@ -30,7 +30,7 @@ export default function CTASection() {
             </h2>
             <p className="mx-auto max-w-2xl text-gray-500 md:text-xl lg:text-base xl:text-xl dark:text-gray-400">
               Transform vulnerable documents into protected content with our
-              Identity Protector application.
+              Identity Secure application.
             </p>
           </motion.div>
 

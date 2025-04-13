@@ -92,7 +92,7 @@ class AgentAI {
       console.error("Error initializing knowledge base:", error);
       // Set fallback knowledge if API fails
       this.updateContext("knowledgeBase", {
-        productName: "Identity Protector",
+        productName: "Identity Secure",
         productVersion: "2.5.3",
         domain: "identity protection",
         primaryFeatures: [
@@ -280,7 +280,7 @@ class AgentAI {
     The user's intent appears to be: ${processingResult.intent}.
     Your response should be helpful, conversational, and natural.
     Key product information: ${
-      knowledgeBase.productName || "Identity Protector"
+      knowledgeBase.productName || "Identity Secure"
     } version ${knowledgeBase.productVersion || "2.5.3"}.
     Primary features include: ${(
       knowledgeBase.primaryFeatures || [
@@ -433,7 +433,7 @@ class AgentAI {
       // For simple cases, use predefined follow-ups
       const basicFollowUps: Record<string, string[]> = {
         greeting: [
-          "What features does Identity Protector offer?",
+          "What features does Identity Secure offer?",
           "How does document analysis work?",
           "What are your pricing plans?",
         ],
@@ -651,10 +651,10 @@ class LLMClient {
 
     if (userContent.includes("hello") || userContent.includes("hi")) {
       responseText =
-        "Hello! I'm your Identity Protector assistant. How can I help you today?";
+        "Hello! I'm your Identity Secure assistant. How can I help you today?";
     } else if (userContent.includes("feature")) {
       responseText =
-        "Identity Protector offers several key features:\n\n" +
+        "Identity Secure offers several key features:\n\n" +
         "• Document Analysis for scanning sensitive information\n" +
         "• Real-time Monitoring for identity threats\n" +
         "• Breach Alerts to notify you immediately of compromised data\n" +
@@ -709,7 +709,7 @@ class LLMClient {
 
     // Return mock knowledge base data
     return {
-      productName: "Identity Protector",
+      productName: "Identity Secure",
       productVersion: "2.5.3",
       domain: "identity protection and document security",
       primaryFeatures: [

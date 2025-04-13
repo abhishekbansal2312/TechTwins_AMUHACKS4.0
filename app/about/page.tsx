@@ -6,7 +6,7 @@ const About: React.FC = () => {
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <header className="mb-12 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent">
-          About Identity Protector
+          About Identity Secure
         </h1>
       </header>
 
@@ -29,7 +29,7 @@ const About: React.FC = () => {
             helps prevent data breaches before they happen.
           </p>
           <p className="text-gray-700 font-bold mb-6">
-            Watch how Identity Protector secures your documents with{" "}
+            Watch how Identity Secure secures your documents with{" "}
             <em>advanced PII detection!</em>
           </p>
           <div className="text-center">

@@ -1,5 +1,5 @@
 export const about = `
-# Identity Protector: AI-Powered PII Detection Tool
+# Identity Secure: AI-Powered PII Detection Tool
 
 1. 🔒 Upload documents and instantly detect personally identifiable information (PII)
 

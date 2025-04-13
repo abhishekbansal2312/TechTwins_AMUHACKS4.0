@@ -16,12 +16,12 @@ const PrivacyPolicy: React.FC = () => {
             1. Introduction
           </h2>
           <p className="text-gray-700 mb-6">
-            Welcome to Identity Protector's Privacy Policy. This document
-            explains how we collect, use, and protect your personal information
-            when you use our PII detection services. We take privacy
-            seriously—it's the foundation of our business—and are committed to
-            protecting your personal data. Please read this privacy policy
-            carefully to understand how we handle your information.
+            Welcome to Identity Secure's Privacy Policy. This document explains
+            how we collect, use, and protect your personal information when you
+            use our PII detection services. We take privacy seriously—it's the
+            foundation of our business—and are committed to protecting your
+            personal data. Please read this privacy policy carefully to
+            understand how we handle your information.
           </p>
 
           <h2 className="text-2xl font-bold text-black mb-4">

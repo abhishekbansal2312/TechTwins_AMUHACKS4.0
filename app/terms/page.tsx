@@ -16,7 +16,7 @@ const TermsOfService: React.FC = () => {
             1. Acceptance of Terms
           </h2>
           <p className="text-gray-700 mb-6">
-            By accessing or using Identity Protector, you agree to be bound by
+            By accessing or using Identity Secure, you agree to be bound by
             these Terms of Service. If you disagree with any part of the terms,
             you may not access the service. These Terms of Service constitute
             the entire agreement between you and Confidential Crusaders
@@ -53,8 +53,8 @@ const TermsOfService: React.FC = () => {
             4. Data Processing and Storage
           </h2>
           <p className="text-gray-700 mb-6">
-            The Identity Protector service processes documents to identify PII.
-            We do not permanently store the content of your documents unless
+            The Identity Secure service processes documents to identify PII. We
+            do not permanently store the content of your documents unless
             specifically requested through our secure storage options. All
             document processing is done securely, and we implement appropriate
             technical safeguards to protect your data during analysis. Detected
@@ -140,8 +140,8 @@ const TermsOfService: React.FC = () => {
 
         <footer className="mt-12 pt-8 border-t border-gray-200">
           <p className="text-emerald-600 text-center mb-4">
-            Thank you for trusting Identity Protector to safeguard your
-            sensitive information
+            Thank you for trusting Identity Secure to safeguard your sensitive
+            information
           </p>
         </footer>
       </div>
