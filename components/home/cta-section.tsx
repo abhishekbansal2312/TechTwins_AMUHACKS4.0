@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { ArrowRight, Shield } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 export default function CTASection() {
   return (
@@ -11,10 +11,10 @@ export default function CTASection() {
       <div className="py-12 lg:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }} // Runs when visible
-          exit={{ opacity: 0, y: 50 }} // Resets when leaving
+          whileInView={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.3 }} // Triggers at 30% visibility
+          viewport={{ once: false, amount: 0.3 }}
           className="flex flex-col items-center justify-center space-y-4 text-center"
         >
           <motion.div
@@ -49,7 +49,7 @@ export default function CTASection() {
               </div>
               <h3 className="font-medium text-green-800">Upload Document</h3>
               <p className="text-sm text-gray-500">
-                Like casting Wingardium Leviosa
+                Start by securely uploading your file
               </p>
             </div>
 
@@ -59,7 +59,7 @@ export default function CTASection() {
               </div>
               <h3 className="font-medium text-green-800">OCR Extraction</h3>
               <p className="text-sm text-gray-500">
-                As precise as the Marauder's Map
+                Text is automatically extracted from your document
               </p>
             </div>
 
@@ -69,7 +69,7 @@ export default function CTASection() {
               </div>
               <h3 className="font-medium text-green-800">PII Detection</h3>
               <p className="text-sm text-gray-500">
-                Reveals secrets like Revelio charm
+                Sensitive data is identified with high precision
               </p>
             </div>
 
@@ -79,7 +79,7 @@ export default function CTASection() {
               </div>
               <h3 className="font-medium text-green-800">Auto-Redaction</h3>
               <p className="text-sm text-gray-500">
-                Protects like an Invisibility Cloak
+                Automatically redact to protect your information
               </p>
             </div>
           </motion.div>
@@ -94,49 +94,31 @@ export default function CTASection() {
             className="flex flex-col gap-2 min-[400px]:flex-row justify-center"
           >
             <SignedOut>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
-                viewport={{ once: false, amount: 0.3 }}
-                className="flex flex-col gap-2 min-[400px]:flex-row justify-center"
+              <Button
+                size="lg"
+                variant="link"
+                className="w-full text-white min-[400px]:w-auto bg-gradient-to-r from-green-900 to-blue-500 hover:from-blue-500"
+                asChild
               >
-                <Button
-                  size="lg"
-                  variant="link"
-                  className="w-full text-white min-[400px]:w-auto bg-gradient-to-r from-green-900 to-blue-500 hover:from-blue-500"
-                  asChild
-                >
-                  <Link href="/sign-in">
-                    Sign In
-                    <ArrowRight className="ml-2" />
-                  </Link>
-                </Button>
-              </motion.div>
+                <Link href="/sign-in">
+                  Sign In
+                  <ArrowRight className="ml-2" />
+                </Link>
+              </Button>
             </SignedOut>
 
             <SignedIn>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
-                viewport={{ once: false, amount: 0.3 }}
-                className="flex flex-col gap-2 min-[400px]:flex-row justify-center"
+              <Button
+                size="lg"
+                variant="link"
+                className="w-full text-white min-[400px]:w-auto bg-gradient-to-r from-green-900 to-blue-500 hover:from-blue-500"
+                asChild
               >
-                <Button
-                  size="lg"
-                  variant="link"
-                  className="w-full text-white min-[400px]:w-auto bg-gradient-to-r from-green-900 to-blue-500 hover:from-blue-500"
-                  asChild
-                >
-                  <Link href="/upload">
-                    Protect Your Documents
-                    <ArrowRight className="ml-2" />
-                  </Link>
-                </Button>
-              </motion.div>
+                <Link href="/upload">
+                  Protect Your Documents
+                  <ArrowRight className="ml-2" />
+                </Link>
+              </Button>
             </SignedIn>
           </motion.div>
         </motion.div>

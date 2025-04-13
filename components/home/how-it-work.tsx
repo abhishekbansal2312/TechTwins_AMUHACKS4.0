@@ -9,37 +9,37 @@ export default function FeaturesSection() {
       icon: <FileText className="h-10 w-10 text-green-600" />,
       title: "Multiple Format Support",
       description:
-        "Like a multilingual wizard, our system can handle PDFs, images, and various document formats.",
+        "Supports PDFs, images, and various document types for flexible data intake.",
     },
     {
       icon: <Eye className="h-10 w-10 text-green-600" />,
       title: "OCR Extraction",
       description:
-        "Our magical eye transforms images and PDFs into searchable text with the precision of a Remembrall.",
+        "Extracts text from images and scanned documents with high accuracy using OCR.",
     },
     {
       icon: <Cpu className="h-10 w-10 text-green-600" />,
       title: "PII Detection",
       description:
-        "Using regex and machine learning spells to detect sensitive data like Aadhar card, PAN, credit card information.",
+        "Detects personal identifiable information using regex and machine learning models.",
     },
     {
       icon: <Shield className="h-10 w-10 text-green-600" />,
       title: "Automated Protection",
       description:
-        "Automatic redaction, notification, and logging - like having your own personal house-elf guard your information.",
+        "Automatically redacts sensitive data, sends notifications, and logs activity securely.",
     },
     {
       icon: <BarChart4 className="h-10 w-10 text-green-600" />,
       title: "Security Dashboard",
       description:
-        "A web-based interface for monitoring and reporting - your personal Marauder's Map for security threats.",
+        "Interactive dashboard for real-time monitoring, analytics, and incident reporting.",
     },
     {
       icon: <Database className="h-10 w-10 text-green-600" />,
       title: "Validation Intelligence",
       description:
-        "Identifies patterns, performs checksums, and analyzes context with the brilliance of a Ravenclaw scholar.",
+        "Performs data pattern checks, validations, and contextual analysis for accuracy.",
     },
   ];
 
@@ -57,11 +57,11 @@ export default function FeaturesSection() {
             Key Features
           </h2>
           <p className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl font-serif">
-            Magical Protection Features
+            Powerful Data Protection
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-            Our Identity Protector comes equipped with powerful enchantments to
-            keep your information safe.
+            Designed to ensure your documents and sensitive data remain secure
+            and compliant.
           </p>
         </motion.div>
 
@@ -88,7 +88,7 @@ export default function FeaturesSection() {
           ))}
         </div>
 
-        {/* Benefits Section - Based on PDF */}
+        {/* Benefits Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,47 +97,43 @@ export default function FeaturesSection() {
           className="mt-20"
         >
           <h3 className="text-2xl font-bold text-center text-green-800 mb-10 font-serif">
-            The Magical Benefits of Identity Protection
+            Benefits of Strong Identity Protection
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow border-t-4 border-t-green-500">
               <h4 className="font-serif text-lg font-bold text-green-700 mb-3">
-                Building Trust & Safety
+                Trust & Security
               </h4>
               <p className="text-gray-600">
-                Build trust with the public, secure online transactions, and
-                contribute to a safer digital realm by protecting sensitive data
-                like a trusted Auror.
+                Strengthen trust with users and stakeholders by ensuring secure
+                and compliant data handling.
               </p>
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow border-t-4 border-t-blue-500">
               <h4 className="font-serif text-lg font-bold text-green-700 mb-3">
-                Innovation & Social Accountability
+                Responsible Innovation
               </h4>
               <p className="text-gray-600">
-                Foster responsible tech advancement through compliance with
-                regulations and socially mobilized data management, worthy of
-                the Order of Merlin.
+                Support ethical technology use with compliance-ready solutions
+                and responsible data management.
               </p>
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow border-t-4 border-t-teal-500">
               <h4 className="font-serif text-lg font-bold text-green-700 mb-3">
-                Economic & Operational Efficiency
+                Operational Efficiency
               </h4>
               <p className="text-gray-600">
-                Achieve cost savings associated with data breaches and
-                non-compliance, simplify document processing, and increase
-                productivity across your organization like a well-cast Patronus
-                dispelling dementors.
+                Reduce costs from breaches, streamline workflows, and enhance
+                productivity with smart automation.
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* Dependencies Section - Based on PDF */}
+        {/* Technologies Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -146,21 +142,21 @@ export default function FeaturesSection() {
           className="mt-20"
         >
           <h3 className="text-2xl font-bold text-center text-green-800 mb-10 font-serif">
-            Technologies Behind Our Magic
+            Technologies Powering the Platform
           </h3>
 
           <div className="bg-white p-8 rounded-lg shadow-lg border border-green-100">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center p-4 rounded-lg bg-green-50">
                 <h4 className="font-medium text-green-700 mb-2">
-                  Core Spellwork
+                  Frontend Framework
                 </h4>
                 <p className="text-sm text-gray-600">React & Next.js</p>
               </div>
 
               <div className="text-center p-4 rounded-lg bg-green-50">
                 <h4 className="font-medium text-green-700 mb-2">
-                  Detection Charms
+                  Data Extraction
                 </h4>
                 <p className="text-sm text-gray-600">
                   Tesseract OCR & ML Models
@@ -169,7 +165,7 @@ export default function FeaturesSection() {
 
               <div className="text-center p-4 rounded-lg bg-green-50">
                 <h4 className="font-medium text-green-700 mb-2">
-                  Protection Enchantments
+                  Data Protection
                 </h4>
                 <p className="text-sm text-gray-600">
                   Encryption Libraries & Regex
@@ -178,7 +174,7 @@ export default function FeaturesSection() {
 
               <div className="text-center p-4 rounded-lg bg-green-50">
                 <h4 className="font-medium text-green-700 mb-2">
-                  Visualization Potions
+                  Data Visualization
                 </h4>
                 <p className="text-sm text-gray-600">D3.js & Chart.js</p>
               </div>

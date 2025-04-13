@@ -19,7 +19,7 @@ const buttonVariants = {
   },
 };
 
-export default function Heemeraldction() {
+export default function HeroSection() {
   const { MotionSection, MotionDiv, MotionH1, MotionH2 } = MotionComponents;
   const router = useRouter();
   const { userId, isSignedIn } = useAuth();
@@ -50,7 +50,7 @@ export default function Heemeraldction() {
           >
             <Shield className="h-8 w-8 lg:h-10 lg:w-10 mr-2 text-green-600 animate-pulse" />
             <p className="text-base text-green-800 transition-colors duration-300 group-hover:text-green-900">
-              Powered by Security Magic
+              Backed by Advanced Encryption
             </p>
           </Badge>
         </MotionDiv>
@@ -60,9 +60,9 @@ export default function Heemeraldction() {
         variants={itemVariants}
         className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl py-6 leading-tight text-green-900"
       >
-        Protecting What{" "}
+        Protect What{" "}
         <span className="relative inline-block">
-          <span className="relative z-10 px-2">Matters </span>
+          <span className="relative z-10 px-2">Matters</span>
           <span
             className="absolute inset-0 bg-green-300/50 -rotate-2 transform -skew-y-1"
             aria-hidden="true"
@@ -75,8 +75,8 @@ export default function Heemeraldction() {
         variants={itemVariants}
         className="mt-2 text-lg sm:text-xl text-green-800 max-w-2xl mx-auto font-medium"
       >
-        Keep your personal identifiable information (PII) safe from prying eyes
-        with our advanced protective charm system
+        Keep your personal information secure with cutting-edge privacy
+        technology and streamlined protection workflows.
       </MotionH2>
 
       <MotionDiv
@@ -89,7 +89,7 @@ export default function Heemeraldction() {
             className="px-8 py-5 text-white text-lg sm:text-xl rounded-full bg-gradient-to-r from-green-700 to-blue-700 hover:from-blue-800 hover:to-green-800 font-bold flex gap-2 items-center shadow-lg"
           >
             <span>
-              {isSignedIn ? "Upload Document" : "Cast Your Protection Spell"}
+              {isSignedIn ? "Upload Document" : "Get Started Securely"}
             </span>
             {isSignedIn ? (
               <Upload className="ml-1" />
@@ -105,7 +105,7 @@ export default function Heemeraldction() {
             className="px-8 py-5 text-lg sm:text-xl rounded-full border-2 border-green-500 hover:bg-green-100 hover:border-green-600 text-green-800 font-medium shadow-md"
             onClick={() => router.push("/#pricing")}
           >
-            View Protection Plans
+            View Plans
           </Button>
         </MotionDiv>
         <MotionDiv whileHover={buttonVariants}>
@@ -117,7 +117,7 @@ export default function Heemeraldction() {
               href={"/workflow"}
               className="font-serif hover:text-green-600"
             >
-              WorkFlow
+              Workflow
             </Link>
           </Button>
         </MotionDiv>
